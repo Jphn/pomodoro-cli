@@ -1,33 +1,79 @@
-# Files
-TARGET = main
-
-# Flags
+# COMPILER
+CC = gcc
 WFLAGS = -Wall -Wextra -Werror
 
-all:
-	@if [ ! -d "./build/" ]; \
-	then mkdir build; \
-	mkdir build/bin; \
-	mkdir build/obj; fi
-	
-	make all.o
+# DIRS
+DIST = build
+BIN = $(DIST)/bin
+OBJ = $(DIST)/obj
+SOURCE = src
+MODULES = $(SOURCE)/modules
 
-	gcc $(WFLAGS) \
-	build/obj/*.o \
-	-o build/bin/$(TARGET)
+# FILES
+DEPENDECIES = $(DIST)/ $(patsubst %.c, $(OBJ)/%.o, $(shell cd $(MODULES) && ls *.c)) $(OBJ)/main.o
+TARGET = main
 
-all.o:
-	make clean
+$(BIN)/$(TARGET): $(DEPENDECIES)
+	@echo "[COMPILING ALL]"
 
-	gcc $(WFLAGS) -c \
-	src/*.c
-	mv *.o build/obj
+	$(CC) $(WFLAGS) \
+	$(OBJ)/*.o \
+	-o $(BIN)/$(TARGET)
+
+	@echo
+
+$(DIST)/:
+	@echo "[CREATING DIST FOLDERS]"
+
+	mkdir $(DIST)/ $(BIN)/ $(OBJ)/
+
+	@echo
+
+
+$(OBJ)/%.o: $(MODULES)/%.h $(MODULES)/%.c
+	@echo "[COMPILING MODULE] $*"
+
+	$(CC) $(WFLAGS) -c \
+	$(MODULES)/$*.c
+
+	mv $*.o \
+	$(OBJ)
+
+	@echo
+
+$(OBJ)/main.o: $(SOURCE)/main.c
+	@echo "[COMPILING MAIN]"
+
+	$(CC) $(WFLAGS) -c \
+	$(SOURCE)/main.c
+
+	mv main.o \
+	$(OBJ)
+
+	@echo
 
 clean:
-	rm -rf build/obj/*.o
+	@echo "[CLEANING OBJECTS]"
+
+	rm -rf \
+	$(OBJ)/*.o
+
+	@echo
 
 hardclean:
-	rm -r build/
+	@echo "[CLEANING ALL DIST STUFF]"
+
+	rm -r \
+	$(DIST)/
+
+	@echo
+
+run: $(BIN)/$(TARGET)
+	@echo "[RUNNING $(TARGET)]"
 	
-run:
-	build/bin/$(TARGET)
+	$(BIN)/$(TARGET)
+
+	@echo
+
+test:
+	@echo "$(DEPENDECIES)"
