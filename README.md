@@ -2,3 +2,9 @@
 
 Simple pomodoro app, developed using C language.
 Made by @Jphn and @Natan.
+
+## Requirements
+
+- Notify-send
+
+## Credits
