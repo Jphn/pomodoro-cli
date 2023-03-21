@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include "./modules/colorize.h"
 
 int main()
 {
-	printf("Hello World!");
+	printf(BOLD GREEN "Hello " REGULAR RED "World!");
 
 	return 0;
 }
