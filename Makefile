@@ -10,7 +10,7 @@ SOURCE = src
 MODULES = $(SOURCE)/modules
 
 # FILES
-DEPENDECIES = $(DIST)/ $(patsubst %.c, $(OBJ)/%.o, $(shell cd $(MODULES) && ls *.c)) $(OBJ)/main.o
+DEPENDECIES = $(DIST)/ $(patsubst $(MODULES)/%.c, $(OBJ)/%.o, $(wildcard $(MODULES)/*.c)) $(OBJ)/main.o
 TARGET = main
 
 $(BIN)/$(TARGET): $(DEPENDECIES)
