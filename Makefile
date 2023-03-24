@@ -13,6 +13,7 @@ MODULES = $(SOURCE)/modules
 DEPENDECIES = $(DIST)/ $(patsubst $(MODULES)/%.c, $(OBJ)/%.o, $(wildcard $(MODULES)/*.c)) $(OBJ)/main.o
 TARGET = main
 
+# COMPILE MAIN FILE
 $(BIN)/$(TARGET): $(DEPENDECIES)
 	@echo "[COMPILING ALL]"
 
@@ -22,6 +23,7 @@ $(BIN)/$(TARGET): $(DEPENDECIES)
 
 	@echo
 
+# CREATE DIST FOLDERS
 $(DIST)/:
 	@echo "[CREATING DIST FOLDERS]"
 
@@ -29,7 +31,7 @@ $(DIST)/:
 
 	@echo
 
-
+# COMPILE MODULES
 $(OBJ)/%.o: $(MODULES)/%.h $(MODULES)/%.c
 	@echo "[COMPILING MODULE] $*"
 
@@ -41,6 +43,7 @@ $(OBJ)/%.o: $(MODULES)/%.h $(MODULES)/%.c
 
 	@echo
 
+# COMPILE main
 $(OBJ)/main.o: $(SOURCE)/main.c
 	@echo "[COMPILING MAIN]"
 
@@ -52,6 +55,7 @@ $(OBJ)/main.o: $(SOURCE)/main.c
 
 	@echo
 
+# CLEAN
 clean:
 	@echo "[CLEANING OBJECTS]"
 
@@ -60,6 +64,7 @@ clean:
 
 	@echo
 
+# HARDCLEAN
 hardclean:
 	@echo "[CLEANING ALL DIST STUFF]"
 
@@ -68,6 +73,7 @@ hardclean:
 
 	@echo
 
+# RODAR O CÓDIGO
 run: $(BIN)/$(TARGET)
 	@echo "[RUNNING $(TARGET)]"
 	
@@ -75,5 +81,6 @@ run: $(BIN)/$(TARGET)
 
 	@echo
 
+# TEST
 test:
 	@echo "$(DEPENDECIES)"
