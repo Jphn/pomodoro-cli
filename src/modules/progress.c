@@ -42,6 +42,8 @@ void updateProgress(int second, int minute, float progress)
 	int currentSecond = second - 60 * minute;
 	float percentage = progress * 100;
 
+	system("clear");
+
 	printf(BOLD "\r");
 
 	printf("%s", colorHandler(percentage));
