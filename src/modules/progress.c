@@ -48,7 +48,7 @@ void updateProgress(int second, int minute, float progress)
 
 	printf("%s", mountProgressBar(progress));
 
-	printf(" %.2f%% - %.2d:%.2d", percentage, minute, currentSecond);
+	printf(" %.2d%% - %.2d:%.2d", (int)percentage, minute, currentSecond);
 
 	fflush(stdout);
 }
