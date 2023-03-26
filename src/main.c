@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include "./modules/colorize.h"
+#include <stdlib.h>
+#include <string.h>
+#include "./modules/pmanager.h"
 
 int main()
 {
-	printf(BOLD GREEN "Hello " REGULAR RED "World!");
+	manager();
 
 	return 0;
 }
