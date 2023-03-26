@@ -3,6 +3,12 @@
 #include <string.h>
 #include "./modules/pmanager.h"
 
+/**
+ * @brief Lida com os argumentos passados na execução do binário.
+ *
+ * @param argc Contador de argumentos que foram passados.
+ * @param argv Vetor contendo todos os argumentos.
+ */
 void handleArgs(int argc, char **argv);
 
 int main(int argc, char **argv)
