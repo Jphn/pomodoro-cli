@@ -1,14 +1,12 @@
 #ifndef PROGRESS_H
 #define PROGRESS_H
 
-const int PRO_BAR_LENGTH;
-const int RED_PERCENTAGE;
-const int YEL_PERCENTAGE;
+extern const int PRO_BAR_LENGTH;
 
-char *mountProgressBar(float progress);
+extern char *mountProgressBar(float progress);
 
-char *colorHandler(float percentage);
+extern char *colorHandler(float percentage);
 
-void updateProgress(int second, int minute, float progress);
+extern void updateProgress(int second, int minute, float progress);
 
 #endif
