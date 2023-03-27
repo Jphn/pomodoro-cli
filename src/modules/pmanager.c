@@ -13,7 +13,11 @@ void manager()
 
 	do
 	{
+		system("clear");
+
 		focus();
+
+		system("clear");
 
 		i++;
 
@@ -24,7 +28,6 @@ void manager()
 		}
 		else
 			shortBreak();
-
 	} while (1);
 }
 
