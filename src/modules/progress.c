@@ -21,7 +21,7 @@ char *mountProgressBar(float progress)
 		strcat(bar, "#");
 
 	for (int s = 1; s <= PRO_BAR_LENGTH - bars; s++)
-		strcat(bar, " ");
+		strcat(bar, ".");
 
 	strcat(bar, "]");
 
