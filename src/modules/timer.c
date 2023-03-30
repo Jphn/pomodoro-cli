@@ -14,6 +14,6 @@ void delay_m(int minutes, void (*onSecPass)(int, int, float))
 		if (s != 0)
 			delay_s(1);
 
-		onSecPass(s, s / 60, (float)s / (minutes * 60));
+		onSecPass(s, s / 60, (float)s / (minutes * 60)); // Executa a função passando: segundo atual, minuto atual e progresso.
 	}
 }
