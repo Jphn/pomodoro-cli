@@ -6,7 +6,7 @@
 
 void notify(char *title, char *message, int urgencyLevel)
 {
-	char *urgency, command[300];
+	char *urgency, command[300]; // Nível de urgência; Comando a ser montado
 
 	switch (urgencyLevel)
 	{
@@ -23,7 +23,7 @@ void notify(char *title, char *message, int urgencyLevel)
 		break;
 	}
 
-	sprintf(command, "notify-send -u %s \"%s\" \"%s\"", urgency, title, message);
+	sprintf(command, "notify-send -u %s \"%s\" \"%s\"", urgency, title, message); // Monta a string do comando de notificação
 
-	system(command);
+	system(command); // Executa o comando previamente montado
 }
