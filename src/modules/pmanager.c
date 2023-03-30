@@ -20,7 +20,7 @@ void manager()
 
 		system("clear");
 
-		if (c == cycle[3])
+		if (c == cycle[3]) // Confere se deve executar o descanso longo
 		{
 			c = 0;
 			longBreak();
