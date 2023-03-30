@@ -5,6 +5,7 @@ Made by @Jphn and @Natan.
 
 ## Requirements
 
+- Linux
 - Notify-send
 
 ## Credits
