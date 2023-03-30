@@ -9,21 +9,20 @@ int cycle[4] = {25, 5, 15, 4};
 
 void manager()
 {
-	int i = 1;
+	int c = 0;
 
 	do
 	{
 		system("clear");
 
 		focus();
+		c++;
 
 		system("clear");
 
-		i++;
-
-		if (i == cycle[3])
+		if (c == cycle[3])
 		{
-			i = 1;
+			c = 0;
 			longBreak();
 		}
 		else
