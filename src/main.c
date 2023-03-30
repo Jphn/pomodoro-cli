@@ -93,7 +93,7 @@ void startupScreen()
 
 	srand(time(NULL));
 
-	int r = rand() % 3 + 1;
+	int r = rand() % 4;
 
 	printf(BOLD);
 
